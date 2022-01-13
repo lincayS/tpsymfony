@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cadeaux index{% endblock %}
+
+{% block body %}
+    <h1>Cadeaux index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>AgeParfait</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cadeaux in cadeauxes %}
+            <tr>
+                <td>{{ cadeaux.id }}</td>
+                <td>{{ cadeaux.nom }}</td>
+                <td>{{ cadeaux.ageParfait }}</td>
+                <td>
+                    <a href="{{ path('admin_gateaux_show', {'id': cadeaux.id}) }}">show</a>
+                    <a href="{{ path('admin_gateaux_edit', {'id': cadeaux.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_gateaux_new') }}">Create new</a>
+{% endblock %}

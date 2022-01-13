@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cadeaux{% endblock %}
+
+{% block body %}
+    <h1>Edit Cadeaux</h1>
+
+    {{ include('admin_gateaux/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_gateaux_index') }}">back to list</a>
+
+    {{ include('admin_gateaux/_delete_form.html.twig') }}
+{% endblock %}
